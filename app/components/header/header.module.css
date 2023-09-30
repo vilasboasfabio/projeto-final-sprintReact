@@ -1,0 +1,116 @@
+
+
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+    background-color: #151515;
+    height: 80px;
+    color: #fff;
+   
+
+}
+.icons{
+   margin-left: 25%;
+   margin-top: 25%;
+   text-decoration: none !important;
+
+}
+.link{
+    text-decoration: none !important;
+
+}
+
+.iconInsta{
+    margin-top: 40%;
+    margin-left: 10%;
+    text-decoration: none !important;
+  
+}
+.div_icons{
+    display: flex;
+}
+.links{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+   margin-left: 18%;
+   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.links1{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+  margin-right: 38%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.link{
+    text-decoration: none !important;
+    color: #dedede;
+    margin: 0px 10px;
+    font-size: 20px;
+}
+.div_img{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    margin-left: 5%;
+    margin-right: -5%;
+}
+.logo{
+   margin-left: 9%;
+}
+.iconMenu{
+    margin-right: 4rem;
+}
+.div_text{
+    display: flex;
+   margin-right: 35%;
+}
+.div_menu2 {
+    background-color: rgb(21, 21, 21, 0.8);
+    width: 20%;
+    border-bottom-right-radius: 10px;
+    padding: 10px;
+    margin-top: -5%;
+   opacity: 0;
+   position: absolute;
+    /* Adicione estas linhas para criar uma transição suave */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out;
+}
+
+
+.div_menu2:hover{
+    opacity: 1;
+    max-height: 100%; /* Aumente a altura para exibir o conteúdo */
+    opacity: 1;
+    z-index: 1;
+    cursor: pointer;
+}
+
+ 
+.div_menu2 a{
+    text-decoration: none !important;
+    color: #dedede;
+    margin-top: 10%;
+    font-size: 20px;
+ 
+}
+.div_menu2 a:hover{
+    background-color: rgb(222, 222, 222, 0.5);
+    color: #212121;
+    border-radius: 6px;
+    transition: 0.8s;
+}
+.div_links{
+    margin-top: 70%;
+    margin-bottom: 10%;
+}

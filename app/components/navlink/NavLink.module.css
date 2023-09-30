@@ -1,0 +1,15 @@
+.text{
+    text-decoration: none !important;
+    color: #dedede;
+   margin-left: 5%;
+}
+
+.text:hover{
+    background-color: rgb(222, 222, 222, 0.5);
+    color: #212121;
+    border-radius: 6px;
+    transition: 0.8s;
+}
+.somelink{
+    margin-left: 3rem;
+}
