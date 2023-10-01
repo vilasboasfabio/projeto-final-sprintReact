@@ -6,6 +6,7 @@ import { useState } from 'react'
 import Clouthing from '../models/Clouthing'
 import ClouthingList from '../models/ListClouthing'
 import Mensage from './components/error/Mensage';
+import ClothingCard from './components/clouthingCard/ClouthingCard';
 
 export default function Home() {
   const [vestuary, setVestuary] = useState('');
@@ -44,7 +45,7 @@ export default function Home() {
       setIsEditing(false);  // Sair do modo de edição
     } else {
       // Adicionar um novo item
-      if (isAnyInputEmpty() || verifyValue()) {
+      if (isAnyInputEmpty() || verifyValue() || !verifyImgUrl()) {
         return;
       }else{
         setMessageData({ type: 'success', text: 'Peça adicionada com sucesso' });
@@ -101,24 +102,26 @@ export default function Home() {
 
   const sellClouth = (index) => {
     const soldItem = list[index];
-  
-    // Remover item da lista
-    setList(prevList => prevList.filter((_item, i) => i !== index));
-    clouthList.remove(index);
-  
+    
     // Atualizar lucro
     setProfit(prevProfit => prevProfit + parseFloat(soldItem.price));
-  
+    
     // Adicionar transação de lucro
     setTransactions(prevTransactions => [...prevTransactions, { type: 'Entrada', value: parseFloat(soldItem.price) }]);
+  
+    // Tornar o card transparente por 4 segundos
+    setTransparentIndices(prev => new Set([...prev, index]));
+  
+    // Remover o card depois de 4 segundos
     setTimeout(() => {
       setTransparentIndices(prev => {
         prev.delete(index);
         return new Set([...prev]);
       });
       removeClouth(index);
-    }, 6000); // 6 segundos
+    }, 4000); // 4 segundos
   };
+  
 
   function isAnyInputEmpty() {
    if (vestuary === '' || size === '' || price === '' || brand === '' || image === '' || color === '') {
@@ -145,6 +148,21 @@ export default function Home() {
       }, 3000);
       return true;
     }else{
+      return false;
+    }
+  }
+
+  
+  function verifyImgUrl() {
+    if (image.includes('https') || (image.includes('.jpg') || image.includes('.png') || image.includes('.jpeg'))) {
+      return true;
+    }else{
+      setMessageData({ type: 'error', text: 'URL inválida' });
+      console.log('URL inválida');
+      setTimeout(() => {
+
+        setMessageData({ type: '', text: '' });
+      }, 3000);
       return false;
     }
   }
@@ -200,24 +218,17 @@ export default function Home() {
         <article className={styles.showVestuary} >
           <h2>Acervo de Peças:</h2>
           {
-            list.map((item, index) => (
+             list.map((item, index) => (
               (isEditing && editingIndex === index) ? null : (
-                <div key={index} className={`${styles.card} ${transparentIndices.has(index) ? styles.transparent : ''}`}>
-                <h2>{item.vestuary}</h2>
-                  <div className={styles.buttons}>
-                    <button type="button" onClick={() => removeClouth(index)}>Excluir</button>
-                    <button type="button" onClick={() => editClouth(index)}>Editar</button>
-                    <button type="button" onClick={() => sellClouth(index)}>Vender</button>
-                  </div>
-                  <div className={styles.line2}>##</div>
-                  <p>Marca: {item.brand}</p>
-                  <p>Tamanho: {item.size}</p>
-                  <p>Cor: {item.color}</p>
-                  <img src={item.image} alt="imagem do produto" />
-                  <div className={styles.line2}>##</div>
-                  <p>Valor: R$ {item.price}</p>
-                  
-                </div>
+                <ClothingCard
+                  key={index}
+                  index={index}
+                  item={item}
+                  removeClouth={removeClouth}
+                  editClouth={editClouth}
+                  sellClouth={sellClouth}
+                  isTransparent={transparentIndices.has(index)}
+                />
               )
             ))
           }
