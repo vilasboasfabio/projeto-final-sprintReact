@@ -13,3 +13,8 @@
 .somelink{
     margin-left: 3rem;
 }
+@media (max-width: 800px){
+    .somelink{
+        display: none;
+    }
+}
