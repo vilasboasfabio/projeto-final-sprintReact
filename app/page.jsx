@@ -43,30 +43,32 @@ export default function Home() {
       setList(newList);
       setEditingIndex(false);
       setIsEditing(false);  // Sair do modo de edição
+      
+      // Atualizar despesas com novo valor
+      setExpenses(prevExpenses => prevExpenses + expenseValue);
     } else {
       // Adicionar um novo item
       if (isAnyInputEmpty() || verifyValue() || !verifyImgUrl()) {
         return;
-      }else{
-        setMessageData({ type: 'success', text: 'Peça adicionada com sucesso' });
-      setList(prevList => [...prevList, clouth]);
-      clouthList.add(clouth);
-      setTimeout(() => {
-        // Limpar mensagem de sucesso
-        setMessageData({ type: '', text: '' });
-      }, 3000);
-    }
-  }
+      } else {
+
+        //mostra mensagem de sucesso, falando qual peça foi adicionada e por quanto
+        setMessageData({ type: 'success', text: `${clouth.vestuary} adicionada por R$ ${clouth.price}` });
+        setList(prevList => [...prevList, clouth]);
+        clouthList.add(clouth);
+        setTimeout(() => {
+          // Limpar mensagem de sucesso
+          setMessageData({ type: '', text: '' });
+        }, 3000);
+      }
   
-    // Atualizar despesas
-    setExpenses(prevExpenses => prevExpenses + expenseValue);
+      // Atualizar despesas
+      setExpenses(prevExpenses => prevExpenses + expenseValue);
+    }
   
     // Adicionar transação de despesa
     setTransactions(prevTransactions => [...prevTransactions, { type: 'Despesa', value: expenseValue }]);
   
-    console.log(list);
-    console.log(clouthList);
-
     // ... código para limpar campos
     setVestuary('');
     setSize('');
@@ -74,9 +76,8 @@ export default function Home() {
     setBrand('');
     setImage('');
     setColor('');
-
-
   };
+  
 
   const removeClouth = (index) => {
     setList(prevList => prevList.filter((_item, i) => i !== index));
@@ -111,7 +112,10 @@ export default function Home() {
   
     // Tornar o card transparente por 4 segundos
     setTransparentIndices(prev => new Set([...prev, index]));
-  
+
+    //mostra mensagem mostrando o nome da peça que foi vendida e por quanto
+    setMessageData({ type: 'success', text: `${soldItem.vestuary} vendida por R$ ${soldItem.price}` });
+   
     // Remover o card depois de 4 segundos
     setTimeout(() => {
       setTransparentIndices(prev => {
@@ -120,6 +124,11 @@ export default function Home() {
       });
       removeClouth(index);
     }, 4000); // 4 segundos
+    setTimeout(() => {
+      // Limpar mensagem de sucesso
+      setMessageData({ type: '', text: '' });
+    }, 4000);
+  
   };
   
 
