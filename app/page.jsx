@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import { useState } from 'react'
 import Clouthing from '../models/Clouthing'
 import ClouthingList from '../models/ListClouthing'
+import Mensage from './components/error/Mensage';
 
 export default function Home() {
   const [vestuary, setVestuary] = useState('');
@@ -21,7 +22,7 @@ export default function Home() {
   const [expenses, setExpenses] = useState(0);
   const [profit, setProfit] = useState(0);
   const [transactions, setTransactions] = useState([]);
-
+  const [messageData, setMessageData] = useState({ type: '', text: '' });
 
 
   const clouthList = new ClouthingList();
@@ -43,9 +44,18 @@ export default function Home() {
       setIsEditing(false);  // Sair do modo de edição
     } else {
       // Adicionar um novo item
+      if (isAnyInputEmpty() || verifyValue()) {
+        return;
+      }else{
+        setMessageData({ type: 'success', text: 'Peça adicionada com sucesso' });
       setList(prevList => [...prevList, clouth]);
       clouthList.add(clouth);
+      setTimeout(() => {
+        // Limpar mensagem de sucesso
+        setMessageData({ type: '', text: '' });
+      }, 3000);
     }
+  }
   
     // Atualizar despesas
     setExpenses(prevExpenses => prevExpenses + expenseValue);
@@ -109,6 +119,35 @@ export default function Home() {
       removeClouth(index);
     }, 6000); // 6 segundos
   };
+
+  function isAnyInputEmpty() {
+   if (vestuary === '' || size === '' || price === '' || brand === '' || image === '' || color === '') {
+    setMessageData({ type: 'error', text: 'Preencha todos os campos' });
+    console.log('Preencha todos os campos');
+    setTimeout(() => {
+      // Limpar mensagem de erro
+      setMessageData({ type: '', text: '' });
+    }, 3000);
+
+     return true;
+   }else{
+     return false;
+   }
+  }
+  
+  function verifyValue() {
+    if (price < 0) {
+      setMessageData({ type: 'error', text: 'O valor não pode ser negativo' });
+      console.log('O valor não pode ser negativo');
+      setTimeout(() => {
+        // Limpar mensagem de erro
+        setMessageData({ type: '', text: '' });
+      }, 3000);
+      return true;
+    }else{
+      return false;
+    }
+  }
   
   const showAcervo = () => {
     setVisibleSection('acervo');
@@ -121,6 +160,7 @@ export default function Home() {
   return (
 
     <>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <Header />
       <div className={styles.controlButtons}>
@@ -152,6 +192,8 @@ export default function Home() {
           <button type="button" onClick={addOrEditClouth}>
             {editingIndex !== false ? 'Atualizar' : 'Enviar'}
           </button>
+          { messageData.text && <Mensage type={messageData.type} text={messageData.text} /> }
+
         </article>
         <hr className={styles.line1} />
         <article className={styles.showVestuary} >
@@ -209,3 +251,4 @@ export default function Home() {
     </>
   )
 }
+

@@ -282,10 +282,165 @@
 }
 .controlButtons button:hover{
     background-color: #0e0e0e;
-
-    transition: 0.5s ease-in-out;
+    transition: 0.3s ease-in-out;
+    color: #f1f1f1  ;
+}
+.controlButtons button:active{
+    background-color: #0e0e0e;
+    width: 15%;
+    height: 2rem;
+    font-size: smaller;
+    transition: 0.3s ease-in-out;
     color: #f1f1f1  ;
 }
 .showF{
     margin-right: 43%;
+}
+
+@media (max-width: 800px) {
+    .content{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        margin-left: 5%;
+        width: 90%;
+    }   
+    .line1{
+        height: 0.5rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        margin-left: 2%;
+        width: 80%;
+        background-color: #dbd4b3;
+        border: none;
+        border-radius: 8px;
+    }
+    .vestuary_form{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+       background-color: #212121;
+        padding: 1.5rem;
+        border-radius: 8px;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: 40rem;
+    }
+    .vestuary_form input{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .vestuary_form input:focus{
+        border: 3px solid #dbd4b3;
+    
+    }
+    .vestuary_form label{
+        font-size: 1.2rem;
+        font-weight: 500;
+        color: #f1f1f1;
+    }
+    .vestuary_form select{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    .vestuary_form button{
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+        border-radius: 5
+    
+}
+.vestuary_form button:hover{
+    background-color: #dbd4b3;
+    width: 60%;
+    height: 3rem;
+    transition: all 0.5s ease-in-out;
+}
+.showVestuary{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    background-color: #212121;
+    padding: 1.5rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin-left: 2%;
+    min-height: 39rem;
+    max-height: 40rem;
+    overflow-y: auto;
+   
+}   
+.showVestuary h3{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #f1f1f1;
+    margin-bottom: 2rem;
+    margin-left: 30%;
+   
+}
+.showVestuary h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #f1f1f1;
+    margin-bottom: 2rem;
+    margin-left: 32%;
+   
+}
+.showVestuary p{
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #f1f1f1;
+    margin-bottom: 1rem;
+    margin-left: 33%;
+   
+}
+.transparent {
+    opacity: 0.4;
+    text-decoration: line-through;
+  }
+  .mainTitle{
+    font-size: 20px;
+    font-weight: 700;
+    color: #0e0e0e;
+    margin-bottom: 2rem;
+    margin-left: 40%;
+    margin-top: 3%;
+  }
+  .controlButtons button{
+    margin-top: 3%;
+    margin-bottom: -6%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    font-size: 10px;
+    font-weight: 500;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    width: 23%;
+    margin-left: 5.5%;
+    border: 2px solid #0e0e0e;
+}
+.showF{
+    margin-right: 38%;
+
+}
 }

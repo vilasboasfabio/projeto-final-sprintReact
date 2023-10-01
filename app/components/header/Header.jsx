@@ -1,3 +1,4 @@
+
 import styles from './header.module.css';
 import NavLink from '../navlink/NavLink';
 import {AiFillGithub} from 'react-icons/ai';
@@ -5,6 +6,7 @@ import {BsInstagram} from 'react-icons/bs'
 import Link from 'next/link';
 import Image from 'next/image';
 import {BiMenuAltLeft} from 'react-icons/bi';
+
 
 
 const Header = () => {
