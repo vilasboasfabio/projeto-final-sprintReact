@@ -228,10 +228,12 @@ export default function Home() {
         {visibleSection === 'fluxo' && (
         <main className={styles.flow}>
           <article className={styles.expensesCard}>
-            <h2>Despesas Totais: R$ {expenses.toFixed(2)}</h2>
+            <h2>Despesas Totais: </h2>
+            <p>R$ {expenses.toFixed(2)}</p>
           </article>
           <article className={styles.profitsCard}>
-            <h2>Receitas Totais: R$ {profit.toFixed(2)}</h2>
+            <h2>Receitas Totais: </h2>
+            <p>R$ {profit.toFixed(2)}</p>
             <div className={styles.courent}>
             <h3>Saldo Atual: R$ {(profit - expenses).toFixed(2)}</h3>
             </div>
