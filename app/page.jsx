@@ -69,7 +69,7 @@ export default function Home() {
     // Adicionar transação de despesa
     setTransactions(prevTransactions => [...prevTransactions, { type: 'Despesa', value: expenseValue }]);
   
-    // ... código para limpar campos
+    // código para limpar campos
     setVestuary('');
     setSize('');
     setPrice('');
@@ -123,6 +123,7 @@ export default function Home() {
    
     // Remover o card depois de 4 segundos
     setTimeout(() => {
+      // Remover o card após deixar transparente por 4 segundos
       setTransparentIndices(prev => {
         prev.delete(index);
         return new Set([...prev]);
