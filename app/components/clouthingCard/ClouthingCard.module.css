@@ -11,8 +11,10 @@
   min-height: 39rem;
    max-height: 40rem;
     overflow-y: auto;
-   
+    
 }
+
+
 .card{
     margin-top: 2rem;
     margin-bottom: 2rem;

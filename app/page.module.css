@@ -173,6 +173,7 @@
     margin-left: 2%;
     min-height: 15rem;
     max-height: 16rem;
+    border: 5px solid #dbd4b3;
 }
 .expensesCard h2{
     margin-left: 3%;
@@ -192,6 +193,7 @@
     margin-left: 2%;
     min-height: 15rem;
     max-height: 16rem;
+    border: 5px solid #dbd4b3;
     
 }
 
@@ -225,7 +227,22 @@
     min-height: 15rem;
     max-height: 16rem;
     text-align: center;
+    border: 5px solid #dbd4b3;
 }
+.transactionsCard::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .transactionsCard::-webkit-scrollbar-thumb {
+  
+  background-color: #dbd4b3 !important;
+    border-radius: 8px;
+  }
+  
+  .transactionsCard::-webkit-scrollbar-track {
+    background-color: #dbd4b3 !important;
+    border-radius: 8px;
+  }
 .transactionsCard p{
     margin-top: 3%;
 }
@@ -267,6 +284,17 @@
     margin-left: 6%;
     margin-top: 2%;
 }
+
+.showVestuary::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .showVestuary::-webkit-scrollbar-thumb {
+  
+  background-color: #dbd4b3 !important;
+    border-radius: 8px;
+  }
+  
 
 @media (max-width: 800px) {
     .content{
