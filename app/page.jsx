@@ -45,6 +45,12 @@ export default function Home() {
       setIsEditing(false);  // Sair do modo de edição
       //mostra mensagem de sucesso, falando qual peça foi atualizada e por quanto
       setMessageData({ type: 'warning', text: `${clouth.vestuary} atualizada por R$ ${clouth.price}` });
+
+      setTimeout(() => {
+        // Limpar mensagem de sucesso
+        setMessageData({ type: '', text: '' });
+      }
+      , 3000);
       
       // Atualizar despesas com novo valor
       setExpenses(prevExpenses => prevExpenses + expenseValue);
@@ -91,6 +97,12 @@ export default function Home() {
     const expenseValue = removedItem.price * 0.8;
     setExpenses(prevExpenses => prevExpenses - expenseValue);
     setMessageData({ type: 'warning', text: `${removedItem.vestuary} removida` });
+
+    setTimeout(() => {
+      // Limpar mensagem de sucesso
+      setMessageData({ type: '', text: '' });
+    }
+    , 3000);
   }
 
   const editClouth = (index) => {
