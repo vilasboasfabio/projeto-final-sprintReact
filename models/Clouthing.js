@@ -4,9 +4,8 @@ class Clouthing{
         this.size = size;
         this.price = price;
         this.image = image;
-       this.brand = brand;
+        this.brand = brand;
         this.color = color;
-     
         this.sold = false;
         this.id = this.generateId();
     }
