@@ -284,8 +284,8 @@
         height: 0.5rem;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        margin-left: 2%;
-        width: 80%;
+        margin-left: -4%;
+        width: 90%;
         background-color: #dbd4b3;
         border: none;
         border-radius: 8px;
@@ -298,9 +298,9 @@
         border-radius: 8px;
         display: flex;
         flex-direction: column;
-        width: 90%;
-        margin-left: auto;
-        margin-right: auto;
+        width: 100%;
+        margin-left: -1.5%;
+        
         height: 40rem;
     }
     .vestuary_form input{
@@ -354,7 +354,7 @@
     display: flex;
     flex-direction: column;
     width: 99%;
-    margin-left: 2%;
+    margin-left: -2%;
     min-height: 39rem;
     max-height: 40rem;
     overflow-y: auto;
