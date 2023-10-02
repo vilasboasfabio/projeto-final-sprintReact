@@ -104,3 +104,37 @@
     width: 30%;
     transition: all 0.5s ease-in-out;
 }
+
+@media (max-width: 800px) {
+    .card{
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        width: 95%;
+        margin-left: 3%;
+        text-align: justify !important;
+    }
+    .card p{
+        margin-left: 18% !important;
+        width: 90%
+        
+    }
+    .buttons button{
+        display: flex;
+        flex-direction: column;
+        width: 70%;
+        text-align: center;
+        margin-left: 20%;
+        margin-top: 5%;
+        padding-left: 23%;
+    }
+
+    .img{
+     margin-left: 13% !important;
+     width: 80% !important;
+    }
+
+    .vish{
+        margin-left: 19% !important;
+        margin-top: -8% !important;
+    }
+}

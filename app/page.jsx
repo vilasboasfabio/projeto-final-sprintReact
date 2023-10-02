@@ -231,7 +231,7 @@ export default function Home() {
         </article>
         <hr className={styles.line1} />
         <article className={styles.showVestuary} >
-          <h2>Acervo de Peças:</h2>
+          <h2 className={styles.titleclouth}>Acervo de Peças:</h2>
           {
              list.map((item, index) => (
               (isEditing && editingIndex === index) ? null : (

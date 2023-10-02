@@ -353,7 +353,7 @@
     border-radius: 8px;
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 99%;
     margin-left: 2%;
     min-height: 39rem;
     max-height: 40rem;
@@ -490,5 +490,10 @@
 .flow p{
     margin-left: 6%;
 
+}
+
+.titleclouth{
+    width: 80%;
+    margin-left:20% !important;
 }
 }

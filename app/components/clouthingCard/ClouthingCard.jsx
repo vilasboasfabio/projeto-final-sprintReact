@@ -11,12 +11,12 @@ const ClothingCard = ({ item, index, removeClouth, editClouth, sellClouth, isTra
         <button type="button" onClick={() => sellClouth(index)}>Vender</button>
       </div>
       <div className={styles.line2}>##</div>
-      <p>Marca: {item.brand}</p>
+      <p>Marca: {item.brand}</p> 
       <p>Tamanho: {item.size}</p>
       <p>Cor: {item.color}</p>
-      <img src={item.image} alt="imagem do produto" />
+      <img src={item.image}  className={styles.img}alt="imagem do produto" />
       <div className={styles.line2}>##</div>
-      <p>Valor: R$ {item.price}</p>
+      <p className={styles.vish}>Valor: R$ {item.price} </p>
     </div>
   );
 };
