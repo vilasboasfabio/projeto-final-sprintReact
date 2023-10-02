@@ -43,6 +43,8 @@ export default function Home() {
       setList(newList);
       setEditingIndex(false);
       setIsEditing(false);  // Sair do modo de edição
+      //mostra mensagem de sucesso, falando qual peça foi atualizada e por quanto
+      setMessageData({ type: 'warning', text: `${clouth.vestuary} atualizada por R$ ${clouth.price}` });
       
       // Atualizar despesas com novo valor
       setExpenses(prevExpenses => prevExpenses + expenseValue);
@@ -88,6 +90,7 @@ export default function Home() {
     const removedItem = list[index];
     const expenseValue = removedItem.price * 0.8;
     setExpenses(prevExpenses => prevExpenses - expenseValue);
+    setMessageData({ type: 'warning', text: `${removedItem.vestuary} removida` });
   }
 
   const editClouth = (index) => {
@@ -102,6 +105,7 @@ export default function Home() {
     setBrand(clouth.brand);
     setImage(clouth.image);
     setColor(clouth.color);
+    
   };
 
   //deixar o card com transparencia quando clicar no botão de vender, depois de 6 segundos ele some
