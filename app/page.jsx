@@ -84,9 +84,14 @@ export default function Home() {
     clouthList.remove(index);
     console.log(list);
     console.log(clouthList);
+    //remover a despesa respectiva gerada pela peça excluida
+    const removedItem = list[index];
+    const expenseValue = removedItem.price * 0.8;
+    setExpenses(prevExpenses => prevExpenses - expenseValue);
   }
 
   const editClouth = (index) => {
+    // Preencher os campos com os dados do item
     setIsEditing(true);
     setEditingIndex(index);
 
@@ -122,7 +127,8 @@ export default function Home() {
         prev.delete(index);
         return new Set([...prev]);
       });
-      removeClouth(index);
+      setList(prevList => prevList.filter((_item, i) => i !== index));
+    clouthList.remove(index);
     }, 4000); // 4 segundos
     setTimeout(() => {
       // Limpar mensagem de sucesso
