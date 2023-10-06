@@ -1,0 +1,23 @@
+.item{
+    display: flex;
+    height: 2.5rem;
+    padding: 3px;
+  
+}
+.item__buttons{
+    display: flex;
+    margin-left: 50%;
+}
+.item__value{
+    display: flex;
+  margin-left: 5%;
+    margin-top: 1%;
+    width: 100%;
+   
+}
+.item__value p{
+    margin-left: 5%;
+    margin-top: 2%;
+
+    width: 100%;
+}
